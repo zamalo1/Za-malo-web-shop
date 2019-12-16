@@ -5,7 +5,7 @@ namespace App\Repository;
 
 
 use App\Entity\Product;
-
+use App\Entity\ProductCategory;
 use App\Utils\DatabaseConnection;
 
 class ProductRepository
