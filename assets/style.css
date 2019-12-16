@@ -1,0 +1,488 @@
+body{
+    width: 1200px;
+    height: auto;
+    padding: 5px;
+    background-color: rgb(245,236,200);
+}
+header{
+    width 890px;
+    height: 172px;
+    background-color: white;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: relative;
+    border-radius: 5px;
+}
+#logo{
+    float: left;
+    width: 220px;
+    height: 61px;
+
+    background-repeat: no-repeat;
+    background-color: white;
+    padding: 5px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+h1{
+    float: left;
+    width:  500px;
+    height: 52px;
+    text-align: center;
+    background: white;
+    margin: 20px;
+    padding: 10px;
+    font-size: 50;
+    font-family: Cambria;
+}
+#login{
+    background-color: #ffc002;
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 35px;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 17;
+}
+#logout{
+    background-color: #ffc002;
+    text-align: center;
+    width: 70px;
+    height: 40px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 35px;
+    border-radius: 10px;
+    border-style: none;
+    font-size: 17;
+}
+#cart{
+    background-image: url("images/images.png");
+    background-repeat: no-repeat;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border-style: none;
+
+}
+#nav{
+    width: 1140px;
+    height: 60px;
+    background-color: #024378;
+    clear: both;
+}
+#proizvodi{
+    height: 60px;
+    width: 250px;
+    background-color: #ffc002;
+    float: left;
+    position: relative;
+    text-align: center;
+    border-radius: 40px;
+
+}
+#proizvodi h2{
+
+}
+#proizvodi:hover ul{
+    opacity: 1;
+    display: block;
+}
+ul{
+    list-style: none;
+    font-size: 40px;
+    background-color: #ffc002;
+    height: 630px;
+    width: 250px;
+    position: absolute;
+    top: 20px;
+    padding: 25px;
+    padding-left: 35px;
+    padding-top: 50px;
+    float: left;
+    opacity: 0;
+    display: none;
+    text-align: left;
+
+}
+ul li{
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+
+}
+#button1{
+    float: right;
+    width: 100px;
+    height: 60px;
+    background-color: #024378;
+    font-size: 16;
+    color: white;
+    border-style: none;
+}
+#button2{
+    float: right;
+    width: 100px;
+    height: 60px;
+    background-color: #024378;
+    font-size: 16;
+    color: white;
+    border-style: none;
+}
+#button3{
+    float: right;
+    width: 110px;
+    height: 60px;
+    background-color: #024378;
+    font-style: normal;
+    font-size: 16;
+    color: white;
+    border-style: none;
+}
+
+main{
+    width: 1140px;
+    height: auto;
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow: hidden;
+}
+.row{
+    width: 1100px;
+    height: auto;
+    background-color: #479DC9;
+    margin: 10px;
+    padding: 10px;
+    overflow: hidden;
+}
+.elrow{
+    width: 250px;
+    height: 480px;
+    background-color: white;
+    float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+
+}
+#mazalo{
+    width: 250px;
+    height: 215px;
+    background-image: url("images/laptop1.jpg");
+    background-repeat: no-repeat;
+}
+#p1{
+    background-color: white;
+    font-size: 20;
+}
+#cena1{
+    background-color: white;
+    font-size: 32;
+    height: 30px;
+}
+.elrow button{
+    width: 110px;
+    height: 50px;
+    margin-right: 10px;
+    margin-top: -5px;
+    border-radius: 25px;
+    background-color: #ffc002;
+    float: right;
+}
+#mazalo1 {
+    background-image: url("images/laptop2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: -3px;
+}
+#mazalo2{
+    background-image: url("images/laptop3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#mazalo3 {
+    background-image: url("images/laptop4.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo4{
+    background-image: url("images/desctop1.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo5{
+    background-image: url("images/desctop2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo6{
+    background-image: url("images/desctop3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo7{
+    background-image: url("images/desctop4.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}#mazalo8{
+    background-image: url("images/monitor1.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+ #mazalo9{
+    background-image: url("images/monitor2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo10{
+    background-image: url("images/monitor3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}#mazalo11{
+    background-image: url("images/monitor4.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+#mazalo12{
+    background-image: url("images/mis1.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+#mazalo13{
+    background-image: url("images/mis2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+#mazalo14{
+    background-image: url("images/mis3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+#mazalo15{
+    background-image: url("images/mis4.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+#mazalo16{
+    background-image: url("images/stampac1.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}
+
+#mazalo17{
+    background-image: url("images/stampac2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}#mazalo18{
+    background-image: url("images/stampac3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 5px;
+}#mazalo19{
+    background-image: url("images/stampac4.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 5px;
+}#mazalo20{
+    background-image: url("images/tastatura1.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}#mazalo21{
+    background-image: url("images/tastatura2.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 30px;
+}#mazalo22{
+    background-image: url("images/tastatura3.jpg");
+    width: 250;
+    height: 215;
+    margin-bottom: 35px;
+    margin-top: 52px;
+}
+#mazalo23 {
+          background-image: url("images/tastatura4.jpg");
+          width: 250;
+          height: 215;
+          margin-bottom: 35px;
+          margin-top: 30px;
+}
+footer{
+    width: 1140px;
+    height: 365px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: white;
+    overflow: hidden;
+}
+#f1{
+    width: 1120px;
+    height: 300px;
+    margin:10px;
+    background-color: rgb(65,60,60);
+}
+.footer1{
+    width: 267px;
+    height: 280px;
+
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.footer1 h2{
+    width: 250px;
+    margin-top: 15px;
+    margin-left: 8px;
+    background-color: rgb(65,60,60);
+    text-align: center;
+    font-size: 20;
+    color: green;
+
+}
+.footer1 p{
+    width: 180px;
+    height: auto;
+    background-color: rgb(65,60,60);
+    margin-top: -5px;
+    margin-left: 70px;
+    color: white;
+}
+.footer1 button{
+    width: 45;
+    height: 40px;
+    background-color: rgb(65,60,60);
+    margin-left: 15px;
+    background-repeat: no-repeat;
+}
+#facebook{
+    background-image: url("images/facebooklogo.png");
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    border-style: none;
+}
+#twitter{
+    background-image: url("images/Twitterlogo.png");
+    border-radius: 10px;
+    border-style: none;
+    width: 45px;
+    height: 45px;
+}
+#youtube{
+    background-image: url("images/youtube.png");
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    border-style: none;
+}
+#instagram{
+    background-image: url("images/instagramlogo.jpg");
+    background-repeat: inherit;
+    border-radius: 10px;
+    border-style: none;
+    width: 45px;
+    height: 45px;
+    
+}
+.fbottom{
+    height: 35px;
+    width: 1120px;
+background-color: rgb(100,98,98);
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+    font-size: 20;
+    padding-top: 10px;
+}
+
+a{
+    text-decoration-line: none;
+    color: black;
+}
+
+#registration{
+    width: 300px;
+    height: 400px;
+    background-color: #024378;
+    margin-left: 420px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 350px;
+}
+#registration h2{
+    color: white;
+    font-size: 32;
+}
+#loginUser{
+    width: 300px;
+    height: 320px;
+    background-color: #024378;
+    margin-left: 420px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 320px;
+
+
+
+
+}
+#loginUser h2{
+    color: white;
+    font-size: 32;
+    margin-top: 200px;
+
+}
+#loginUser a {
+    font-size: 15;
+    color: white;
+
+
+}
+
+
+
