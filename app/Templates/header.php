@@ -1,5 +1,5 @@
 <head>
-    <title>MAZALOO</title>
+    <title>MAZALO</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../../../HtmlCSS/webstore/assets/style.css">
 

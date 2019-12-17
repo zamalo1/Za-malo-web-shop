@@ -15,4 +15,5 @@ class DatabaseConnection
         $conn = new \PDO($dsn, $username, $password);
         return $conn;
     }
+
 }

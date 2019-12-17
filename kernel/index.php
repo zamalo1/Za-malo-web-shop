@@ -11,7 +11,7 @@ use App\Services\ServiceContainer;
  * Get parametar prosledjen u urlu i na osnovu njega biramo kontroler i pozivamo metodu koja ce generisati sadrzaj
  */
 
-$configuration =require "../env.php";
+$configuration =require "../env.php" ;
 if(isset($_GET['page'])) {
     if ($_GET['page'] == "index") {
         $controller = new ProductController(new ServiceContainer($configuration));
