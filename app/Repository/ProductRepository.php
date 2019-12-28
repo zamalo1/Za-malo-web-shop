@@ -3,7 +3,8 @@
 
 namespace App\Repository;
 
-
+require __DIR__."/../../vendor/autoload.php";
+use dirname;
 use App\Entity\Product;
 
 use App\Utils\DatabaseConnection;
@@ -69,7 +70,8 @@ class ProductRepository
             $this->CategoryMessage[] = '(What`s category id of your product!!!)';
             return $this->CategoryMessage;
         }else{
-            move_uploaded_file($file['tmp_name'], 'C:/wamp64/www/HtmlCSS/webstore/assets/images/'. $file['name']);
+            $directory=require "../dirname.php";
+            move_uploaded_file($file['tmp_name'], $directory.'/assets/images/'. $file['name']);
             $this->insertProduct($_POST['product_name'], $_POST['product_price'], $_FILES['image']['name'], $_POST['category_id']);
             $this->mesage[]='(Successfully added product!!!)';
             return $this->mesage;
@@ -120,8 +122,9 @@ class ProductRepository
                 $sql = $this->pdo->query("select images from product where id='$id'");
                 $products = $sql->fetchAll();
                 foreach ($products as $product) {
-                    unlink("C:/wamp64/www/HtmlCSS/webstore/assets/images/$product[0]");
-                    move_uploaded_file($_FILES['image']['tmp_name'], 'C:/wamp64/www/HtmlCSS/webstore/assets/images/' . $_FILES['image']['name']);
+                    $directory=require "../dirname.php";
+                    unlink($directory."/assets/images/$product[0]");
+                    move_uploaded_file($_FILES['image']['tmp_name'], $directory."/assets/images/" . $_FILES['image']['name']);
                     $this->updateProduct($id, $_FILES['image']['name'], $_POST['product_name'], $_POST['product_price'], $_POST['category_id']);
                     $this->mesage[] = 'Successful update';
                     return $this->mesage;
@@ -140,7 +143,7 @@ class ProductRepository
             $sql = $this->pdo->query("select images from product where id='$id'");
             $products = $sql->fetchAll();
             foreach ($products as $product) {
-                unlink("C:/wamp64/www/HtmlCSS/webstore/assets/images/$product[0]");
+                unlink($directory."/assets/images/$product[0]");
                 $this->deleteProduct($id);
                 header(sprintf("Location:%s?page=product_list", $_SERVER['SCRIPT_NAME']));
             }
