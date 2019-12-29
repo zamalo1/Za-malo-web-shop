@@ -9,9 +9,7 @@ use App\Utils\DatabaseConnection;
 
 class ProductCategoryRepository
 {
-    public $oldMessage=[];
-    public $newMessage=[];
-    public $mesage=[];
+
     private $pdo;
 
     public function __construct()
@@ -31,19 +29,7 @@ class ProductCategoryRepository
         return $categoriesArray;
 
     }
-    public function AdminUpdateCategory()
-    {
-        if(!isset($_POST)) {
-            $this->mesage;
-            return $this->mesage;
-        }elseif (empty($_POST['new_name'])){
-                $this->newMessage[]='What`s name of your category!!!';
-        }else{
-            $this->updateCategory($_POST['new_name'],$_POST['category_name']);
-            $this->mesage[]='Successful update!!!';
-            return $this->mesage;
-        }
-    }
+
     public function updateCategory($newName,$CategoryName)
     {
         $query=$this->pdo->query("UPDATE category SET name='$newName' WHERE id='$CategoryName';");

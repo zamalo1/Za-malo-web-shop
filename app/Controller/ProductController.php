@@ -7,6 +7,7 @@ use App\Abstractions\AbstractController;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\ProductRepository;
 use App\Utils\IncludeTemplate;
+use App\Services\Engine;
 
 class ProductController extends AbstractController
 {
@@ -55,26 +56,25 @@ class ProductController extends AbstractController
         $priceMessage=[];
         $categoryMessage=[];
         if(isset($_POST['upload'])) {
-            $object = new ProductRepository();
+            $object = new Engine();
             $object->addProduct($_FILES['image']);
             $mesage = $object->mesage;
-            $fileMessage = $object->fileMessage;
-            $imageMessage = $object->ImageMessage;
-            $nameMessage = $object->nameMessage;
-            $priceMessage = $object->PriceMessage;
-            $categoryMessage = $object->CategoryMessage;
+            $fileMessage = $object->message1;
+            $nameMessage = $object->message2;
+            $priceMessage = $object->message3;
+            $categoryMessage = $object->message4;
         }
         $allCategories=$this->categoryRepository->getAllCategories();
-        return IncludeTemplate::includeTemplateFile('add_product.php',['categories'=>$allCategories,'iMessage'=>$imageMessage,'nMessage'=>$nameMessage,'pMessage'=>$priceMessage, 'cMessage'=>$categoryMessage,'mesage'=>$mesage,'fileMessage'=>$fileMessage
+        return IncludeTemplate::includeTemplateFile('add_product.php',['categories'=>$allCategories,'nMessage'=>$nameMessage,'pMessage'=>$priceMessage, 'cMessage'=>$categoryMessage,'mesage'=>$mesage,'fileMessage'=>$fileMessage
         ]);
     }
     public function AddCategory()
     {
         if(!$this->isLogged()) header(sprintf("Location:%s?page=login",$_SERVER['SCRIPT_NAME']));
-        $object=new ProductRepository();
+        $object=new Engine();
         $object->addCategory();
-        $finishMessage=$object->nameMessage;
-        $categoryMessage=$object->CategoryMessage;
+        $finishMessage=$object->message2;
+        $categoryMessage=$object->message1;
         return IncludeTemplate::includeTemplateFile('add_category.php',['categoryMessage'=>$categoryMessage,'newMessage'=>$finishMessage]);
     }
 

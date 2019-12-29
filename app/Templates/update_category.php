@@ -26,7 +26,6 @@
                 <option value="<?=$category->getId()?>"><?=$category->getName()?></option>
             <?php } ?>
         </select>
-        <p><?=implode($templateArray['categoryMessage'])?></p>
         <h2>New category</h2><br>
 
         New category name<input type="text" name="new_name"><br>

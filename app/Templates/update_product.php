@@ -19,7 +19,6 @@
             <p><?=implode($templateArray['price'])?></p>
             <img src="../assets/images/<?=$product->getImages()?>"><br>
             <input type="file" name="image">
-            <p><?=implode($templateArray['file'])?></p>
         <?php } ?>
         <br>
         <br>
