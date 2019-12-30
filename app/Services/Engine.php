@@ -76,6 +76,7 @@ class Engine
     }
     public function AdminUpdateProduct($id)
     {
+        $a=[];
         if(isset($_POST['upload'])) {
 
             if (empty($_POST['product_name'])) {
@@ -87,15 +88,15 @@ class Engine
             } elseif (isset($_FILES['image']['name']) && $_FILES['image']['name']!=="") {
                 $sql = $this->pdo->query("select images from product where id='$id'");
                 $products = $sql->fetchAll();
-                foreach ($products as $product) {
+                $a[]=$products[0]['images'];
+                $b=implode($a);
                     $directory=require "../dirname.php";
-                    unlink($directory."/assets/images/$product[0]");
+                    unlink($directory."/assets/images/$b");
                     move_uploaded_file($_FILES['image']['tmp_name'], $directory."/assets/images/" . $_FILES['image']['name']);
                     $object=new ProductRepository();
                     $object->updateProduct($id, $_FILES['image']['name'], $_POST['product_name'], $_POST['product_price'], $_POST['category_id']);
                     $this->mesage[] = 'Successful update';
                     return $this->mesage;
-                }
             }else{
                 $object=new ProductRepository();
                 $object->updateProduct1($id,$_POST['product_name'], $_POST['product_price'], $_POST['category_id']);
@@ -109,12 +110,13 @@ class Engine
         if(isset($_POST['delete'])) {
             $sql = $this->pdo->query("select images from product where id='$id'");
             $products = $sql->fetchAll();
-            foreach ($products as $product) {
-                unlink($directory."/assets/images/$product[0]");
+            $a[]=$products[0]['images'];
+            $b=implode($a);
+                unlink($directory."/assets/images/$b");
                 $object=new ProductRepository();
                 $object->deleteProduct($id);
                 header(sprintf("Location:%s?page=product_list", $_SERVER['SCRIPT_NAME']));
-            }
+
         }
     }
     public function AdminUpdateCategory()
