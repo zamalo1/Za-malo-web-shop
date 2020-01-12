@@ -9,7 +9,10 @@
     <h1>ZA-MALO SHOP</h1>
     <button id="login"><a href="http://localhost/HtmlCSS/webstore/kernel/index.php?page=login">Login</a></button>
     <button id="logout" ><a href="http://localhost/HtmlCSS/webstore/kernel/index.php?page=logout">Log out</a></button>
-    <button id="cart"></button>
+    <p id="countCart"><?php if (!empty($_SESSION['cart'])){
+        echo count($_SESSION['cart']);
+        }?></p>
+    <a href="http://localhost/HtmlCSS/webstore/kernel/index.php?page=shopping_cart"><button id="cart"></button></a>
     <div id="nav">
         <div id="proizvodi"><h2>PROIZVODI</h2>
             <ul>

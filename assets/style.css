@@ -68,7 +68,7 @@ h1{
     height: 30px;
     float: right;
     margin-right: 50px;
-    margin-top: 40px;
+    margin-top: -15px;
     border-radius: 10px;
     border-style: none;
 
@@ -190,9 +190,9 @@ main{
     height: 30px;
 }
 .elrow button{
-    width: 110px;
-    height: 50px;
-    margin-right: 10px;
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
     margin-top: -5px;
     border-radius: 25px;
     background-color: #ffc002;
@@ -480,9 +480,84 @@ a{
 #loginUser a {
     font-size: 15;
     color: white;
-
+}
+table {
+   margin: auto;
+    background-color: white;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    border: black solid 2px;
 
 }
-
+table tr {
+    border-bottom: black solid 1px;
+}
+#naslovKorpe{
+    text-align: center;
+    margin-top: 40px;
+}
+#kolicina{
+    text-align: center;
+    width: 30px;
+    margin-left: 17px;
+}
+.shopping{
+    width: 150px;
+    height: 20px;
+    background-color: #ffc002;
+    border: solid black 2px;
+    margin-bottom: 50px;
+    float: left;
+    margin-left: 300px;
+    padding-top: 3px;
+    padding-left: 7px;
+    border-radius: 5px;
+}
+#countCart{
+    background-color: #ffc002;
+    font-size: 12;
+    float: right;
+    width: 15px;
+    height: 15px;
+    margin-right: 80px;
+    margin-top: 32px;
+    text-align: center;
+    border-radius: 10px;
+}
+#ukupno{
+    width: 100px;
+    height: 25px;
+    background-color: white;
+    border: solid black 2px;
+    float: right;
+    margin-right: 372px;
+    margin-top: -25px;
+    border-radius: 5px;
+}
+#ukupnoTekst{
+    margin-top: -27px;
+    margin-left: 700px;
+}
+#finish{
+    float: right;
+    margin-top: 15px;
+    margin-right: -108px;
+    border-radius: 10px;
+    background-color: #024378;
+    height: 35px;
+    color:#ffc002;
+    margin-bottom: 200px;
+}
+#emptyCart{
+    margin-left: 300px;
+    border-radius: 10px;
+    color:#ffc002;
+    background-color:#024378 ;
+    height: 25px;
+}
+#praznaKorpa{
+    margin-left: 430px;
+    margin-bottom: 70px;
+}
 
 

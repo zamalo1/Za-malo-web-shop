@@ -26,7 +26,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'laptopovi'),(2,'Racunari'),(3,'monitori'),(4,'misevi'),(5,'stampaci'),(6,'tastature'),(15,'slusalice');
+INSERT INTO `category` VALUES (1,'laptopov'),(2,'Racunari'),(3,'monitori'),(4,'misevi'),(5,'stampaci'),(6,'tastature'),(15,'televizori');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,7 +53,7 @@ CREATE TABLE `product` (
   `images` varchar(128) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=193 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=204 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (5,'desctop233','20000','desctop2.jpg',2),(9,'monitor2','20000','monitor2.jpg',3),(12,'mis1','2222222','mis1.jpg',4),(14,'mis3','30000','mis3.jpg',4),(17,'stampac1','20000','stampac2.jpg',5),(18,'stampac2','30000','stampac3.jpg',5),(19,'stampac3333','12','Stampac Mazalo.jpg',5),(20,'laptop8','2000','laptop8.jpg',1),(21,'tastatura1','2000','tastatura2.jpg',6),(22,'tastatura2','3000','tastatura3.jpg',6),(191,'Laptop7','20000','laptop2.jpg',1),(192,'Laptop7','20000','laptop8.jpg',1),(190,'laptop6','30500','laptop766.jpg',1),(186,'tastatura3','2000','tastatura8.jpg',6);
+INSERT INTO `product` VALUES (5,'desctop233','20000','desctop2.jpg',2),(9,'monitor2','20000','monitor2.jpg',1),(12,'mis1','2222222','mis1.jpg',4),(14,'mis3','30000','mis3.jpg',4),(17,'stampac1','20000','stampac2.jpg',5),(18,'stampac2','2000','stampac3.jpg',1),(20,'laptop8','2000','laptop8.jpg',1),(203,'tastatura ssssa','1212','bezmalo.jpg',1),(199,'Stampac 755','2300','MAAAAZALOkonj.jpg',5),(200,'Stampac 755','2300','MAAAAZALOkonj.jpg',5),(202,'tastatura ssss','1212','tastatura23.jpg',6),(191,'Laptop7','20000','laptop2.jpg',1),(201,'tastatura ssss','1212','tastatura23.jpg',6),(197,'stampac23','3000','Stampac aa.jpg',5),(192,'Laptop7','20000','laptop8.jpg',1),(190,'laptop6','30500','laptop766.jpg',1),(186,'tastatura3','2000','tastatura8.jpg',6);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +81,7 @@ CREATE TABLE `user` (
   `email` varchar(128) DEFAULT NULL,
   `password` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COMMENT='		';
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 COMMENT='		';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +90,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Marko','Cvetic','zamalo','zamaloman@gmail.com','0638190811'),(4,'Mirko','Cvetic','Mirkoalkos','mirkoalkos@gmail.com','tocenopivo'),(9,'marko','savovic','savovic123','savovic@gmail.com','Mareza95'),(8,'Mimi','Dukic','Dukic123','prohibitiontime@gmail.com','Mimi123');
+INSERT INTO `user` VALUES (1,'Marko','Cvetic','zamalo','zamaloman@gmail.com','0638190811'),(10,'marko','Dukic','sara12','budozelja@gmail.com','Dolceikebana1'),(4,'Mirko','Cvetic','Mirkoalkos','mirkoalkos@gmail.com','tocenopivo'),(9,'marko','savovic','savovic123','savovic@gmail.com','Mareza95'),(8,'Mimi','Dukic','Dukic123','prohibitiontime@gmail.com','Mimi123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-19  0:38:06
+-- Dump completed on 2020-01-12  3:56:30

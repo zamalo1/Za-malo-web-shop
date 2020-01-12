@@ -6,8 +6,10 @@ namespace App\Controller;
 use App\Abstractions\AbstractController;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\ProductRepository;
+use App\Services\Session;
 use App\Utils\IncludeTemplate;
 use App\Services\Engine;
+use App\Entity\Product;
 
 class ProductController extends AbstractController
 {
@@ -24,7 +26,6 @@ class ProductController extends AbstractController
 
     public function index()
     {
-
         $products=$this->productsRepository->getProductsByType();
         $categories=$this->categoryRepository->getAllCategories();
         $content=IncludeTemplate::includeTemplateFile('index.php',[

@@ -13,7 +13,7 @@ class Session
          return isset($_SESSION['username']);
     }
 
-    public function addToCart(Product $product)
+    public function addToCartSession(Product $product)
     {
         if(!isset($_SESSION['cart'])){
             $_SESSION['cart']=[];
@@ -21,7 +21,7 @@ class Session
         $_SESSION['cart'][$product->getId()]=$product;
     }
 
-    public function removeFromCart(Product $product)
+    public function removeFromCartSession(Product $product)
     {
         if(isset($_SESSION['cart'][$product->getId()])){
             unset($_SESSION['cart'][$product->getId()]);

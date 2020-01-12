@@ -51,7 +51,6 @@ class ProductRepository
 
         return $query;
     }
-
     public function CheckProductById($id)
     {
         $productObjects=[];
@@ -59,6 +58,16 @@ class ProductRepository
         $products=$stmt->fetchAll();
         foreach ($products as $product){
             $productObjects[]=new Product($product);
+        }
+        return $productObjects;
+
+    }
+    public function CheckProductById1($id)
+    {
+        $stmt=$this->pdo->query("SELECT * FROM product where id='$id';");
+        $products=$stmt->fetchAll();
+        foreach ($products as $product){
+            $productObjects=new Product($product);
         }
         return $productObjects;
 

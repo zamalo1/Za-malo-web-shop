@@ -2,11 +2,12 @@
 
 
 namespace App\Services;
+use App\Entity\Product;
 use App\Repository\ProductRepository;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\UserRepository;
 use App\Utils\DatabaseConnection;
-
+use App\Services\Session;
 class Engine
 {
     public $mesage=[];
@@ -203,6 +204,11 @@ class Engine
         }
     }
 
+    public function cart(){
+        if(isset($_POST['add'])){
+            $_SESSION['cart']=$_POST['add'];
+        }
+    }
 
 
 }

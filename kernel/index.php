@@ -5,6 +5,7 @@ require __DIR__."/../vendor/autoload.php";
 session_start();
 use App\Controller\ProductController;
 use App\Controller\AdminController;
+use App\Controller\CartController;
 use App\Services\ServiceContainer;
 
 /**
@@ -57,6 +58,21 @@ if(isset($_GET['page'])) {
     elseif ($_GET['page']=='logout'){
         $controller=new AdminController(new ServiceContainer($configuration));
         $content=$controller->logout();
+    }
+    elseif($_GET['page']=='add_to_cart'){
+        $controller=new CartController(new ServiceContainer($configuration));
+        $content=$controller->add_to_cart($_GET['id']);
+    }elseif ($_GET['page']=='shopping_cart'){
+        $controller=new CartController(new ServiceContainer($configuration));
+        $content=$controller->shoppingCart();
+    }
+    elseif($_GET['page']=='remove_from_cart') {
+        $controller = new CartController(new ServiceContainer($configuration));
+        $content = $controller->removeFromCart($_GET['id']);
+    }
+    elseif ($_GET['page']=='empty_cart'){
+        $controller = new CartController(new ServiceContainer($configuration));
+        $content=$controller->emptyCart();
     }
     echo $content;
 }
