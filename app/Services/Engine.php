@@ -2,12 +2,11 @@
 
 
 namespace App\Services;
-use App\Entity\Product;
 use App\Repository\ProductRepository;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\UserRepository;
 use App\Utils\DatabaseConnection;
-use App\Services\Session;
+
 class Engine
 {
     public $mesage=[];
@@ -20,12 +19,14 @@ class Engine
 
     private $pdo;
     private $_suporttedFormats = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+    private $parameters;
 
 
 
-    public function __construct()
+    public function __construct($parameters)
     {
         $this->pdo=DatabaseConnection::getConnection();
+        $this->parameters=$parameters;
     }
 
     public function addProduct($file)
@@ -52,7 +53,8 @@ class Engine
                 $this->message4[] = '(What`s category id of your product!!!)';
                 return $this->message4;
             }else{
-                $directory=require "../dirname.php";
+
+                $directory=$this->parameters['root_folder'];
                 move_uploaded_file($file['tmp_name'], $directory.'/assets/images/'. $file['name']);
                 $object=new ProductRepository();
                 $object->insertProduct($_POST['product_name'], $_POST['product_price'], $_FILES['image']['name'], $_POST['category_id']);
@@ -203,12 +205,5 @@ class Engine
             return $this->messages;
         }
     }
-
-    public function cart(){
-        if(isset($_POST['add'])){
-            $_SESSION['cart']=$_POST['add'];
-        }
-    }
-
 
 }

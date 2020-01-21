@@ -183,6 +183,7 @@ main{
 #p1{
     background-color: white;
     font-size: 20;
+    text-align: center;
 }
 #cena1{
     background-color: white;
@@ -500,6 +501,7 @@ table tr {
     text-align: center;
     width: 30px;
     margin-left: 17px;
+    border-style: none;
 }
 .shopping{
     width: 150px;
@@ -525,6 +527,8 @@ table tr {
     border-radius: 10px;
 }
 #ukupno{
+    padding-top: 5px;
+    text-align: center;
     width: 100px;
     height: 25px;
     background-color: white;
@@ -558,6 +562,39 @@ table tr {
 #praznaKorpa{
     margin-left: 430px;
     margin-bottom: 70px;
+}
+#minus{
+    float: right;
+    margin-right:-5px;
+    margin-left: 6px;
+    margin-top: -22px;
+ }
+#plus{
+    float: left;
+    margin-right:-16px;
+}
+#kol{
+    margin-left: 20px;
+    margin-bottom: 15px;
+    border: solid black 1.5px;
+    width: 200px;
+    text-align: center;
+}
+#ukupno1{
+    width: 80px;
+    margin-left: 20px;
+    text-align: center;
+    border-style: none;
+}
+#cena{
+    width: 100px;
+    text-align: center;
+    border-style: none;
+}
+#sveukupno{
+    width: 95px;
+    text-align: center;
+    border-style: none;
 }
 
 

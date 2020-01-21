@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Abstractions\AbstractController;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\ProductRepository;
+use App\Services\ServiceContainer;
 use App\Services\Session;
 use App\Utils\IncludeTemplate;
 use App\Services\Engine;
@@ -16,12 +17,14 @@ class ProductController extends AbstractController
 
     private $productsRepository;
     private $categoryRepository;
+    private $engine;
 
-    public function __construct($container)
+    public function __construct(ServiceContainer $container)
     {
         parent::__construct($container);
         $this->productsRepository=new ProductRepository();
         $this->categoryRepository=new ProductCategoryRepository();
+        $this->engine=$container->getEngine();
     }
 
     public function index()
@@ -57,13 +60,12 @@ class ProductController extends AbstractController
         $priceMessage=[];
         $categoryMessage=[];
         if(isset($_POST['upload'])) {
-            $object = new Engine();
-            $object->addProduct($_FILES['image']);
-            $mesage = $object->mesage;
-            $fileMessage = $object->message1;
-            $nameMessage = $object->message2;
-            $priceMessage = $object->message3;
-            $categoryMessage = $object->message4;
+            $this->engine->addProduct($_FILES['image']);
+            $mesage = $this->engine->mesage;
+            $fileMessage = $this->engine->message1;
+            $nameMessage = $this->engine->message2;
+            $priceMessage = $this->engine->message3;
+            $categoryMessage = $this->engine->message4;
         }
         $allCategories=$this->categoryRepository->getAllCategories();
         return IncludeTemplate::includeTemplateFile('add_product.php',['categories'=>$allCategories,'nMessage'=>$nameMessage,'pMessage'=>$priceMessage, 'cMessage'=>$categoryMessage,'mesage'=>$mesage,'fileMessage'=>$fileMessage
@@ -72,10 +74,9 @@ class ProductController extends AbstractController
     public function AddCategory()
     {
         if(!$this->isLogged()) header(sprintf("Location:%s?page=login",$_SERVER['SCRIPT_NAME']));
-        $object=new Engine();
-        $object->addCategory();
-        $finishMessage=$object->message2;
-        $categoryMessage=$object->message1;
+        $this->engine->addCategory();
+        $finishMessage=$this->engine->message2;
+        $categoryMessage=$this->engine->message1;
         return IncludeTemplate::includeTemplateFile('add_category.php',['categoryMessage'=>$categoryMessage,'newMessage'=>$finishMessage]);
     }
 

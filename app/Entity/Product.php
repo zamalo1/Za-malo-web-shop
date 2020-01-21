@@ -10,6 +10,7 @@ class Product
     private $name;
     private $price;
     private $images;
+    private $quantity=1;
 
     public function __construct($productArray)
     {
@@ -81,5 +82,21 @@ class Product
     public function setImages($images)
     {
         $this->images = $images;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
+
+    /**
+     * @param mixed $quantity
+     */
+    public function setQuantity($quantity): void
+    {
+        $this->quantity = $quantity;
     }
 }

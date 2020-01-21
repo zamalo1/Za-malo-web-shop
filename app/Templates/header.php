@@ -2,7 +2,7 @@
     <title>MAZALO</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../../../HtmlCSS/webstore/assets/style.css">
-
+    <script type="text/javascript" src="../assets/index.js"></script>
 </head>
 <header>
     <div id="logo"><a href="http://localhost/HtmlCSS/webstore/kernel/index.php?page=index"><img src="../assets/images/Untitled.png"></a> </div>

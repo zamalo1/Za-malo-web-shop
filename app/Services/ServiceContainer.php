@@ -14,6 +14,11 @@ class ServiceContainer
         $this->configuration=$configuration;
     }
 
+   public function getEngine()
+   {
+       return new Engine($this->configuration);
+   }
+
     /**
      * @return Session
      */
