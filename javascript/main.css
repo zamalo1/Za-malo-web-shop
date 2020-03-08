@@ -1,0 +1,138 @@
+.myclass{
+    color: red;
+}
+.box{
+    width: 200px;
+    height: 400px;
+    margin: 30px;
+    padding: 10px;
+    border: 1px solid gray;
+    float: left;
+}
+.day{
+    background: #f44366;
+    color: blue;
+}
+.night{
+    background: #ffc002;
+    color: red;
+}
+#wrapp{
+    background: green;
+    width: 150px;
+    border: 1px solid gray;
+    margin 20px auto;
+}
+.naslovi{
+    width: 100%;
+    background: greenyellow;
+    text-align: center;
+    line-height: 30px;
+
+}
+.podnaslovi{
+    text-align: center;
+    display: none;
+}
+#kurac{
+    width: 70%;
+    min-height: 600px;
+    background: gray;
+    margin: 0 auto;
+}
+#reklama1{
+    width: 70%;
+    height: 200px;
+    background: red;
+    float: left;
+}
+#reklama2{
+     width: 30%;
+     height: 200px;
+     background: yellow;
+     float: left;
+ }
+#reklama3{
+    width: 100%;
+    height: 200px;
+    background: green;
+    float: left;
+}
+.close{
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    background: black;
+    float: right;
+    cursor: pointer;
+}
+#reklama4{
+    width: 100%;
+    height: 200px;
+    background: aqua;
+    float: left;
+}
+#ball{
+    width: 100px;
+    height: 100px;
+    margin: 100px auto;
+    background: red;
+    border-radius: 50px;
+}
+#wrapp5{
+    width: 200px;
+    min-height: 200px;
+    margin: 0 auto;
+}
+#header{
+    background: lightblue;
+    width: 100%;
+    height: 60px;
+}
+#header h1{
+    text-align: center;
+    line-height: 60px;
+}
+#slider{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+#holder{
+    width: 200px;
+    height: 200px;
+}
+#holder{
+    width: 800px;
+    min-width: 200px;
+    height: 200px;
+}
+#holder img{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+#wrapp6{
+    width: 1000px;
+    min-height: 700px;
+    margin: 0 auto;
+}
+#header1{
+    width: 100%;
+    line-height: 60px;
+    font-size: 1.5em;
+}
+section{
+
+}
+
+
+
+
+
+
+
+
+

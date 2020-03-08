@@ -28,7 +28,12 @@ function kolicinaPlus() {
             sveukupno.value=parseInt(sveukupno.value) - parseInt(cena.value);
         }
     }
+var mazalo=document.getElementById('kurcobolja').style.border='solid black 1px';
+mazalo.addEventListener('click',zamalo,true)
 
+function zamalo() {
+    mazalo.setAttribute('style', 'color:red');8
+}
 
 
 

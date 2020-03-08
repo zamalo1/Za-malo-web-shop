@@ -4,7 +4,6 @@
 namespace App\Repository;
 
 require __DIR__."/../../vendor/autoload.php";
-use dirname;
 use App\Entity\Product;
 
 use App\Utils\DatabaseConnection;

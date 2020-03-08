@@ -3,6 +3,8 @@
 
 namespace App\Controller;
 
+use App\Repository\LikesRepository;
+use App\Services\ServiceContainer;
 use App\Services\Session;
 use App\Abstractions\AbstractController;
 use App\Repository\ProductCategoryRepository;
@@ -11,22 +13,28 @@ use App\Utils\IncludeTemplate;
 
 class CartController extends AbstractController
 {
+    private $likeRepository;
     private $productsRepository;
     private $categoryRepository;
     /**
      * @var Session
      */
     private $session;
+    private $engine;
 
-    public function __construct($container)
+    public function __construct(ServiceContainer $container)
     {
         parent::__construct($container);
         $this->productsRepository=new ProductRepository();
         $this->categoryRepository=new ProductCategoryRepository();
+        $this->likeRepository=new LikesRepository();
+        $this->engine=$container->getEngine();
         $this->session=$container->getSession();
     }
 
     public function add_to_cart($id){
+        $this->likeRepository->countLikes($_GET['id']);
+        $this->engine->likes();
         $product=$this->productsRepository->CheckProductById1($id);
         $product->setQuantity($_POST['kolicina']);
         $this->session->sessionSum($product);

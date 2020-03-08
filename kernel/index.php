@@ -73,6 +73,21 @@ if(isset($_GET['page'])) {
     elseif ($_GET['page']=='empty_cart'){
         $controller = new CartController(new ServiceContainer($configuration));
         $content=$controller->emptyCart();
+    }elseif ($_GET['page']=='product_details'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->productDetails($_GET['id']);
+    }elseif($_GET['page']=='liked_comment'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->likedTheComment();
+    }elseif($_GET['page']=='product_like'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->commentLike();
+    }elseif($_GET['page']=='product_unlike'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->commentUnlike();
+    }elseif ($_GET['page']=='post_comment'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->postAComment();
     }
     echo $content;
 }

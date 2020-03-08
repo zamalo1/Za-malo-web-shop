@@ -167,7 +167,7 @@ main{
 }
 .elrow{
     width: 250px;
-    height: 480px;
+    height: 530px;
     background-color: white;
     float: left;
     margin-left: 20px;
@@ -184,6 +184,7 @@ main{
     background-color: white;
     font-size: 20;
     text-align: center;
+    height: 70px;
 }
 #cena1{
     background-color: white;
@@ -596,5 +597,287 @@ table tr {
     text-align: center;
     border-style: none;
 }
+#likeProduct{
+    width: 20px;
+    height: 20px;
+    margin-right: 80px;
+    margin-top: -30px;
+
+}
+#likeMessage{
+    width:120px;
+    height: 30px;
+    font-size: 11;
+    margin-top: -10px;
+    margin-bottom: -5px;
+    margin-left: 25px;
+    text-align: right;
+}
+#likeProduct img{
+    width:25px;
+    height:25px;
+    background-color: white;
+    margin-left: -10px;
+    margin-top: -5px;
+}
+#likeQ{
+    width: 40px;
+    text-align: center;
+    margin-left: 180px;
+    margin-top: -30px;
+}
+#mainDet{
+    width: 1140px;
+    height: auto;
+    background-color: white;
+}
+#naslovDet{
+    width: 1040px;
+    height: 50px;
+    background-color: white;
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: 27;
+}
+#slikaDet{
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    margin-top: 50px;
+    margin-left: 50px;
+    float: left;
+}
+#slikaDet img{
+    border: solid black 1px;
+}
+#cenaDetText{
+    width: 190px;
+    height: 50px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 110px;
+    font-size: 25;
+}
+#cenaDet{
+    width: 180px;
+    height: 50px;
+    background-color: white;
+    float: left;
+    margin-left: 630px;
+    margin-top: -307px;
+    text-align: center;
+    font-size: 35;
+    padding-top: 10px;
+}
+#qtt{
+    width: 300px;
+    height: 60px;
+    float: left;
+    margin-left: 450px;
+    background-color: white;
+    margin-top: -130px;
+}
+#qtt p{
+    float: left;
+    font-size: 17;
+}
+#kolDet{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 5px;
+    float: left;
+}
+#qtt button{
+    width: 100px;
+    height: 40px;
+    margin-top: 8px;
+    margin-left: 30px;
+    border-radius: 25px;
+    background-color: #ffc002;
+    float: left;
+}
+#likeDiv{
+    width: 350px;
+    height: 60px;
+    background-color: white;
+    float: left;
+    margin-left: 450px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+#likeDiv p{
+    float: left;
+}
+#likeDivQ{
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+#likeProduct1{
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: none;
+    background-color: white;
+    margin-bottom: 30px;
+}
+#commentDiv{
+    width: 1040px;
+    height: auto;
+    background-color: white;
+    overflow: hidden;
+    margin-left: 50px;
+}
+#commentDiv p{
+    margin-left: 850px;
+    margin-top: 5px;
+
+}
+#commentDiv h2{
+    margin-top: 50px;
+    margin-left: 50px;
+}
+#textarea{
+    width: 950px;
+    height: 30px;
+    margin-left: 50px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+}
+#commentButton{
+    float: right;
+    margin-top: -15px;
+    margin-right: 60px;
+    width: 100px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: #ffc002;
+}
+#rewCom{
+    margin-top: 100px;
+    padding-left: 60px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#table{
+    width: 960px;
+    margin-left: 40px;
+    padding:  10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black;
+    position: relative;
+}
+#userComm{
+    float: left;
+}
+#dateComm{
+    float: right;
+    margin-right: 30px;
+    font-size: 14px;
+    color: darkslategray;
+}
+#text{
+    height: 30px;
+    width: 700px;
+    padding: 5px;
+    padding-top: 10px;
+    float: left;
+}
+#likeComment{
+    width: 115px;
+   line-height: 25px;
+    background: white;
+    float: right;
+    margin-right: 22px;
+    margin-top: 25px;
+}
+.likeButton{
+    width: 23.5px;
+    height: 23px;
+    float: left;
+    background: white;
+    border: none;
+}
+.likedButton{
+    width: 23.5px;
+    height: 23px;
+    float: left;
+    background: white;
+    border: 1px solid green;
+}
+.likeButton img{
+    margin-left: -5px;
+    margin-top: -1px;
+
+}
+.likeQuantity{
+      width: 20px;
+      height: 20px;
+      margin-left: 6.5px;
+      float: left;
+      text-align: center;
+      margin-top: 1px;
+  }
+.likedQuantity{
+      width: 20px;
+      height: 20px;
+      margin-left: 6.5px;
+      float: left;
+      text-align: center;
+      margin-top: 1px;
+        background: green;
+  }
+.unlikeQuantity{
+    width: 20px;
+    height: 20px;
+    background: white;
+    margin-left: 12px;
+    float: left;
+    text-align: center;
+    margin-top: 1px;
+}
+.unlikedQuantity{
+    width: 20px;
+    height: 20px;
+    background: red;
+    margin-left: 12px;
+    float: left;
+    text-align: center;
+    margin-top: 1px;
+}
+.UnlikeButton{
+    width: 23.5px;
+    height: 23px;
+    float: left;
+    background: white;
+    margin-left: 6.5px;
+    border: none;
+}
+.UnlikedButton{
+    width: 23.5px;
+    height: 23px;
+    float: left;
+    background: red;
+    margin-left: 6.5px;
+    border: none;
+}
+.UnlikeButton img{
+    margin-left: -5px;
+    margin-top: -1px;
+}
+
+
+
+
 
 

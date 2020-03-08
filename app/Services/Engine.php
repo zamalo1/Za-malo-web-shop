@@ -2,10 +2,12 @@
 
 
 namespace App\Services;
+use App\Repository\CommentRepository;
 use App\Repository\ProductRepository;
 use App\Repository\ProductCategoryRepository;
 use App\Repository\UserRepository;
 use App\Utils\DatabaseConnection;
+use App\Repository\LikesRepository;
 
 class Engine
 {
@@ -20,13 +22,14 @@ class Engine
     private $pdo;
     private $_suporttedFormats = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
     private $parameters;
-
-
-
+    private $CommentRepository;
+    private $LikeRepository;
     public function __construct($parameters)
     {
         $this->pdo=DatabaseConnection::getConnection();
         $this->parameters=$parameters;
+        $this->CommentRepository=new CommentRepository();
+        $this->LikeRepository=new LikesRepository();
     }
 
     public function addProduct($file)
@@ -200,10 +203,80 @@ class Engine
             $this->message2[]="Wrong password!!!";
             return $this->message2;
         }else{
+
+            $user=$Repository->getUserByUsername($_POST['username']);
             $this->messages[]="You are successfully logged in!!!";
             $_SESSION['username']=$_POST['username'];
+            $_SESSION['user_data']=$user;
+
+            header(sprintf("Location:%s?page=index",$_SERVER['SCRIPT_NAME']));
             return $this->messages;
         }
     }
+
+    public function likes(){
+        $this->mesage='';
+        $this->LikeRepository=new LikesRepository();
+        if(isset($_POST['like'])){
+            if(isset($_SESSION['username'])){
+                if(!$this->LikeRepository->checkIfLikeExist($_GET['id'],$_SESSION['username'])){
+                    $this->LikeRepository->insertLike();
+                    $this->mesage='You like this product';
+                    return $this->mesage;
+                }else{
+                    $this->LikeRepository->deleteLike();
+                    $this->mesage='Do you like this product?';
+                    return $this->mesage;
+                }
+
+            }else{
+                $this->mesage="You must be logged in";
+                return $this->mesage;
+            }
+        }
+    }
+    public function submittQuantity(){
+        if(!isset($_POST['submitt'])){
+            $quantity=0;
+        }else{
+            $quantity=$_POST['kolicina'];
+        }
+        return $quantity;
+    }
+    public function postComment(){
+        $this->messages='';
+                if(isset($_SESSION['username'])){
+                    if(!empty($_POST['textarea'])){
+
+                        $this->CommentRepository->insertComment($_POST['username'],$_POST['date'],$_POST['textarea'],$_POST['product_id']);
+                    }
+            }else{
+                    $this->messages='You must be logged in!!!';
+                    return $this->messages;
+             }
+    }
+
+    public function commentLikes($commentId,$username){
+
+            if(isset($_SESSION['username'])){
+                if(!$this->LikeRepository->checkIfCommentLikeExist($commentId,$username)){
+                    $this->LikeRepository->insertCommentLike($commentId,$username);
+
+                }else{
+                    $this->LikeRepository->updateCommentLike($commentId,$username);
+                }
+            }
+    }
+    public function commentUnlikes($commentId,$username){
+
+        if(isset($_SESSION['username'])){
+            if(!$this->LikeRepository->checkIfCommentLikeExist($commentId,$username)){
+                $this->LikeRepository->insertCommentUnlike($commentId,$username);
+            }else{
+                $this->LikeRepository->updateCommentUnlike($commentId,$username);
+            }
+        }
+    }
+
 
 }

@@ -3,7 +3,7 @@
 
 namespace App\Services;
 
-
+use App\Repository\LikesRepository;
 use App\Entity\Product;
 
 class Session
@@ -49,5 +49,6 @@ class Session
     public function emptySession($key){
         $_SESSION[$key]=empty($_SESSION[$key]);
     }
+
 
 }

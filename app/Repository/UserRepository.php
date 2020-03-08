@@ -62,5 +62,13 @@ class UserRepository
         }
     }
 
+    public function getUserByUsername($username)
+    {
+        $stmt=$this->pdo->prepare("Select * FROM user where username=?");
+        $stmt->execute([$username]);
+        $row=$stmt->fetch(\PDO::FETCH_ASSOC);
+        return $row;
+    }
+
 }
 
