@@ -3,33 +3,30 @@
 include ("header.php");
 ?>
 <body>
-<?php foreach ($templateArray['products'] as $product){?>
+<?php foreach ($templateArray['productLikes'] as $product){?>
 <main id="mainDet">
 <div id="naslovDet"><?=$product->getName()?></div>
     <div id="slikaDet"><img src="../assets/images/<?=$product->getImages()?>" width="350px" height="350px"> </div>
     <p id="cenaDetText"><b>Product price:</b></p><div id="cenaDet"><b><?=$product->getPrice()?> rsd</b></div>
-    <form action="" method="post">
     <div id="qtt">
         <p>Quantity: </p>
     <input id="kolDet" type="text" value="5" name="kolicina" >
-        <button name="submitt">Add to cart</button>
+        <button name="submitt" id="<?=$product->getId()?>">Add to cart</button>
     </div>
-    <div id="likeDiv">
-        <p><?php print_r($templateArray['message'])?></p>
-        <button id="likeProduct1" name="like" ><img src="../assets/images/srce.png" width="30px"></button>
-        <input id="likeDivQ" type="text" value="<?php $a=new \App\Repository\LikesRepository();
-        echo $a->countLikes($product->getId());?>" name="likeQ"  readonly="readonly">
-    </div>
-
+        <div id="likesDivDet">
+            <p></p>
+            <button class="likesButtonDet <?=$product->isUserLikeThisProduct()?"likedButtonDet":""?>"  product-id="<?=$product->getId()?>" data-username="<?=$_SESSION['username']?? "" ?>" name="likesButtonDet"><img src="../assets/images/like.jpg" width="20px" height="20px"></button>
+            <input class="likesQuantityDet <?=$product->isUserLikeThisProduct()?"likedQuantityDet":""?>" name="likesQuantityDet" value="<?=count($product->getLikes())?>" readonly="readonly">
+            <input class="unlikesQuantityDet <?=$product->isUserDislikeThisProduct()?"unlikedQuantityDet":""?>" name="unlikesQuantityDet" value="<?=count($product->getDislikes())?>" readonly="readonly">
+            <button class="unlikesButtonDet <?=$product->isUserDislikeThisProduct()?"unlikedButtonDet":""?>" product-id="<?=$product->getId()?>" data-username="<?=$_SESSION['username']?? "" ?>" name="unlikesButtonDet"><img src="../assets/images/dislike.jpg" width="20px" height="20px"></button>
+        </div>
         <div id="commentDiv">
                 <h2>Comments</h2>
-                <input type="hidden" name="product_id" value="<?=$product->getId()?>">
-                <input type="hidden" name="date" value="<?=date('D-m-y H:i:s')?>">
                 <input type="text" id="textarea" name="textarea" placeholder="  Write your comment...">
                 <p></p>
-                <button type="submit" id="commentButton" data-product_id="<?=$product->getId()?>" data-date="<?=date('D-m-y H:i:s')?>" data-username="<?=$_SESSION['username']?? "" ?>" name="commentButton">Comment</button>
+                <button type="submit" id="commentButton" data-username="<?=$_SESSION['user_data']['username']?? "" ?>" data-product_id="<?=$product->getId()?>" date="<?=date('D-m-y H:i:s')?>"  name="commentButton">Comment</button>
             <?php } ?>
-    </form>
+
             <h3 id="rewCom">Reviews on this product</h3>
             <?php
             /**
@@ -44,14 +41,15 @@ include ("header.php");
                     </tr>
                     <tr>
                         <td id="text"><?=$comment->getText()?></td>
+
                         <td id="likeComment">
+                            <p id="msg"></p>
                             <button class="likeButton <?=$comment->isUserLikedThisComment()?"likedButton":"" ?>"  name="likeButton" data-comment_id="<?=$comment->getId() ?>" data-username="<?=$_SESSION['username']?? "" ?>" ><img src="../assets/images/like.jpg" width="20px" height="20px"></button>
-                            <input class="likeQuantity" value="<?=count($comment->getLikes())?>" name="likeQuantity"  readonly="readonly">
-                            <input class="unlikeQuantity" value="<?=count($comment->getDislikes())?>" readonly="readonly">
-                            <button class="UnlikeButton" name="unlikeButton" data-comment_id="<?=$comment->getId() ?>" data-username="<?=$_SESSION['username']?? "" ?>" ><img src="../assets/images/dislike.jpg" width="20px" height="20px"></button>
+                            <input class="likeQuantity <?=$comment->isUserLikedThisComment()?"likedQuantity":"" ?>"  value="<?=count($comment->getLikes())?>" name="likeQuantity"  readonly="readonly">
+                            <input class="unlikeQuantity <?=$comment->isUserUnlikedThisComment()?"unlikedQuantity":"" ?>" value="<?=count($comment->getDislikes())?>" readonly="readonly">
+                            <button class="UnlikeButton <?=$comment->isUserUnlikedThisComment()?"UnlikedButton":"" ?>" name="unlikeButton" data-comment_id="<?=$comment->getId() ?>" data-username="<?=$_SESSION['username']?? "" ?>" ><img src="../assets/images/dislike.jpg" width="20px" height="20px"></button>
                     </td>
                 </tr>
-
 
             </table>
             <?php } ?>
@@ -70,32 +68,18 @@ include ("footer.php");
 
 </script>
 <script>
-
-  /*  $( "[name=commentButton]" ).click(function() {
-
-        const product_id= $(this).attr('data-product_id');
-        const user= $(this).attr('data-username');
-        const date= $(this).attr('data-date');
-        var textarea=$( "[name=textarea]" ).val();
-        $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=post_comment",{product_id:product_id,username:user,date:date,textarea:textarea}, function(data) {
-            textarea=$( "[name=textarea]" ).val('');
-             parseData=JSON.parse(data);
-            //console.log(parseData.comment_by_id);
-            $('#commentDiv').find('p').text(parseData.message);
-
-        });
-        return false;
-    });*/
-
-   $( "[name=likeButton]" ).click(function() {
+   $("[name=likeButton]" ).click(function() {
         const commentId=$(this).attr("data-comment_id");
-
+        const user=$(this).attr("data-username");
         var likeButton =$(this);
         var unlikeButton = $(this).parent().find('button').eq(1);
         var likeQuantity= $(this).parent().find('input').eq(0);
        var unlikeQuantity= $(this).parent().find('input').eq(1);
+       var msg=$(this).parent().find('p');
+       if (user===""){
+           msg.text("You must be logged in");
+       }
        $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=product_like",{commentId:commentId}, function(data) {
-
            parseData=JSON.parse(data);
            if(!parseData.existLike) {
                likeQuantity.val(parseInt(likeQuantity.val()) + 1);
@@ -107,7 +91,6 @@ include ("footer.php");
                    unlikeQuantity.val(parseInt(unlikeQuantity.val()) - 1);
                }
            }
-
     });
         return false;
        });
@@ -119,7 +102,11 @@ include ("footer.php");
        var unlikeButton =$(this);
        var likeQuantity= $(this).parent().find('input').eq(0);
        var unlikeQuantity= $(this).parent().find('input').eq(1);
-       $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=product_unlike",{commentId:commentId,username:user}, function(data) {
+       var msg = $(this).parent().find('p');
+       if (user===""){
+           msg.text("You must be logged in");
+       }
+       $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=product_unlike",{commentId:commentId}, function(data) {
            parseData=JSON.parse(data);
            if(!parseData.existUnlike){
                unlikeQuantity.val(parseInt(unlikeQuantity.val()) + 1);
@@ -131,6 +118,81 @@ include ("footer.php");
                    likeQuantity.val(parseInt(likeQuantity.val()) - 1);
                }
            }
+       });
+       return false;
+   });
+   $("[name=likesButtonDet]").click(function () {
+       const productId=$(this).attr("product-id");
+       const user = $(this).attr("data-username");
+       var likeButton =$(this);
+       var unlikeButton = $(this).parent().find('button').eq(1);
+       var likeQuantity= $(this).parent().find('input').eq(0);
+       var unlikeQuantity= $(this).parent().find('input').eq(1);
+       var msg = likeButton.parent().find('p');
+       if (user===""){
+           msg.text("You must be logged in");
+       }
+       $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=products_like",{productId:productId},function (data){
+           parseData=JSON.parse(data);
+           if(!parseData.existLike) {
+               likeQuantity.val(parseInt(likeQuantity.val()) + 1);
+               unlikeButton.removeClass('unlikedButtonDet');
+               likeButton.addClass('likedButtonDet');
+               unlikeQuantity.removeClass('unlikedQuantityDet');
+               likeQuantity.addClass('likedQuantityDet');
+               if (parseData.existUnlike) {
+                   unlikeQuantity.val(parseInt(unlikeQuantity.val()) - 1);
+               }
+           }
+       });
+       return false;
+   });
+   $("[name=unlikesButtonDet]").click(function () {
+       const productId=$(this).attr("product-id");
+       const user = $(this).attr("data-username");
+       var unlikeButton =$(this);
+       var likeButton =$(this).parent().find('button').eq(0);
+       var likeQuantity= $(this).parent().find('input').eq(0);
+       var unlikeQuantity= $(this).parent().find('input').eq(1);
+       var msg = likeButton.parent().find('p');
+       if (user===""){
+           msg.text("You must be logged in");
+       }
+       $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=products_unlike",{productId:productId},function (data){
+           parseData=JSON.parse(data);
+           if(!parseData.existUnlike){
+               unlikeQuantity.val(parseInt(unlikeQuantity.val()) + 1);
+               likeQuantity.removeClass('likedQuantityDet');
+               likeButton.removeClass('likedButtonDet');
+               unlikeQuantity.addClass('unlikedQuantityDet');
+               unlikeButton.addClass('unlikedButtonDet');
+               if(parseData.existLike){
+                   likeQuantity.val(parseInt(likeQuantity.val()) - 1);
+                   likeButton.removeClass('likedButtonDet');
+               }
+           }
+       });
+       return false;
+   });
+   $("[name=commentButton]").click(function () {
+       const product_id=$(this).attr("data-product_id");
+       const user=$(this).attr("data-username");
+       const date=$(this).attr("date");
+       var text=$("[name=textarea]");
+       const textarea=$("[name=textarea]").val();
+       var msg = $(this).parent().find('p').eq(0);
+       if (user===""){
+           msg.text('You must be logged in');
+       }
+       $.post( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=product_comments",{product_id:product_id,date:date,textarea:textarea},function (data){
+            text.val("");
+       });
+       return false;
+   });
+   $("[name=submitt]").click(function () {
+       const id=$(this).attr("id");
+       const kolicina=$(this).parent().find('input').val();
+       $.get( "http://localhost/HtmlCSS/webstore/kernel/index.php?page=add_to_cart",{id:id,kolicina:kolicina},function (data){
 
        });
        return false;

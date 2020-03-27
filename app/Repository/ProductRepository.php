@@ -27,6 +27,29 @@ class ProductRepository
         }
         return $productObjects;
     }
+    public function getProduct()
+    {
+        $productObjects=[];
+        $stmt=$this->pdo->query("SELECT * FROM product");
+        $products=$stmt->fetchAll();
+        foreach ($products as $product){
+            $productObject=new Product($product);
+            $likes=$this->pdo->query(sprintf("SELECT * FROM likes where product_id=%s AND type='like'",$productObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
+            $dislikes=$this->pdo->query(sprintf("SELECT * FROM likes where product_id=%s AND type='unlike'",$productObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
+            if(in_array($_SESSION['user_data']['username']??"",array_column($likes,'username'))){
+                $productObject->setUserLikeThisProduct(true);
+            }elseif (in_array($_SESSION['user_data']['username']??"", array_column($dislikes, 'username'))){
+                $productObject->setUserDislikeThisProduct(true);
+            }
+            $productObject->setLikes($likes);
+            $productObject->setDislikes($dislikes);
+            $productObjects[]=$productObject;
+            }
+        return $productObjects;
+        }
+
+
+
     public function getProductsByCategory($categoryId)
     {
         $productObjects=[];
@@ -86,5 +109,26 @@ class ProductRepository
         $query=$this->pdo->query("DELETE FROM product WHERE id='$id'");
         return $query;
     }
+
+    public function findProductById($id)
+    {
+        $productObjects=[];
+        $stmt=$this->pdo->query("SELECT * FROM product where id='$id';");
+        $products=$stmt->fetchAll(\PDO::FETCH_ASSOC);
+            foreach ($products as $product){
+                $productObject=new Product($product);
+                    $likes=$this->pdo->query(sprintf("SELECT * FROM likes where product_id=%s AND type='like'",$productObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
+                    $dislikes=$this->pdo->query(sprintf("SELECT * FROM likes where product_id=%s AND type='unlike'",$productObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
+                        if(in_array($_SESSION['user_data']['username']??"",array_column($likes,'username'))){
+                            $productObject->setUserLikeThisProduct(true);
+                        }elseif (in_array($_SESSION['user_data']['username']??"", array_column($dislikes, 'username'))){
+                            $productObject->setUserDislikeThisProduct(true);
+                        }
+                        $productObject->setLikes($likes);
+                        $productObject->setDislikes($dislikes);
+                        $productObjects[]=$productObject;
+            }
+        return $productObjects;
+        }
 
 }

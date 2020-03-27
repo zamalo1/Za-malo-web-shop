@@ -11,6 +11,10 @@ class Product
     private $price;
     private $images;
     private $quantity=1;
+    private $userLikeThisProduct=false;
+    private $userDislikeThisProduct=false;
+    private $likes;
+    private $dislikes;
 
     public function __construct($productArray)
     {
@@ -19,6 +23,71 @@ class Product
         $this->price=$productArray['price'];
         $this->images=$productArray['images'];
     }
+
+    /**
+     * @return bool
+     */
+    public function isUserLikeThisProduct(): bool
+    {
+        return $this->userLikeThisProduct;
+    }
+
+    /**
+     * @param bool $userLikeThisProduct
+     */
+    public function setUserLikeThisProduct(bool $userLikeThisProduct): void
+    {
+        $this->userLikeThisProduct = $userLikeThisProduct;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUserDislikeThisProduct(): bool
+    {
+        return $this->userDislikeThisProduct;
+    }
+
+    /**
+     * @param bool $userDislikeThisProduct
+     */
+    public function setUserDislikeThisProduct(bool $userDislikeThisProduct): void
+    {
+        $this->userDislikeThisProduct = $userDislikeThisProduct;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+
+    /**
+     * @param mixed $likes
+     */
+    public function setLikes($likes): void
+    {
+        $this->likes = $likes;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDislikes()
+    {
+        return $this->dislikes;
+    }
+
+    /**
+     * @param mixed $dislikes
+     */
+    public function setDislikes($dislikes): void
+    {
+        $this->dislikes = $dislikes;
+    }
+
 
     /**
      * @return mixed

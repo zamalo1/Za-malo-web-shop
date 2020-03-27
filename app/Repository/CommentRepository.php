@@ -27,8 +27,11 @@ class CommentRepository
         foreach ($comments as $comment){
             $commentObject=new Comment($comment);
             $likes=$this->pdo->query(sprintf("SELECT * FROM like_comment WHERE comment_id=%s AND type='like' ",$commentObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
+            $dislikes=$this->pdo->query(sprintf("SELECT * FROM like_comment WHERE comment_id=%s AND type='unlike' ",$commentObject->getId()))->fetchAll(\PDO::FETCH_ASSOC);
             if(in_array($_SESSION['user_data']['username']??"",array_column($likes,'username') )){
                 $commentObject->setUserLikedThisComment(true);
+            }elseif (in_array($_SESSION['user_data']['username']??"",array_column($dislikes,'username') )){
+                $commentObject->setUserUnlikedThisComment(true);
             }
 
             $commentObject->setLikes($likes);

@@ -76,18 +76,21 @@ if(isset($_GET['page'])) {
     }elseif ($_GET['page']=='product_details'){
         $controller=new ProductController(new ServiceContainer($configuration));
         $content=$controller->productDetails($_GET['id']);
-    }elseif($_GET['page']=='liked_comment'){
-        $controller=new ProductController(new ServiceContainer($configuration));
-        $content=$controller->likedTheComment();
     }elseif($_GET['page']=='product_like'){
         $controller=new ProductController(new ServiceContainer($configuration));
         $content=$controller->commentLike();
     }elseif($_GET['page']=='product_unlike'){
         $controller=new ProductController(new ServiceContainer($configuration));
         $content=$controller->commentUnlike();
-    }elseif ($_GET['page']=='post_comment'){
+    }elseif ($_GET['page']=='products_like'){
         $controller=new ProductController(new ServiceContainer($configuration));
-        $content=$controller->postAComment();
+        $content=$controller->productLikes();
+    }elseif ($_GET['page']=='products_unlike'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->productUnlikes();
+    }elseif ($_GET['page']=='product_comments'){
+        $controller=new ProductController(new ServiceContainer($configuration));
+        $content=$controller->productComment();
     }
     echo $content;
 }

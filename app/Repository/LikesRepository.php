@@ -78,6 +78,7 @@ class LikesRepository
         $query=$this->pdo->query("UPDATE like_comment SET type='$type' WHERE comment_id='$commentId' AND  username='$username'");
         return $query;
     }
+
     public function updateCommentUnlike($commentId,$username)
     {
         $type='unlike';
@@ -111,11 +112,65 @@ class LikesRepository
             return false;
         }
     }
-
-    public function getCommentLikes($id){
+    public function checkIfProductLikeExist($productId,$username){
+        $stmt=$this->pdo->prepare("Select id FROM likes where product_id=? AND username=? ");
+        $stmt->execute([$productId,$username]);
+        $row=$stmt->fetchAll();
+        if(!empty($row))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function checkIfMeLikeProduct($productId,$username){
         $type='like';
-        $stmt=$this->pdo->query("SELECT id FROM like_comment WHERE comment_id='$id' AND type='$type'");
-        $product=$stmt->fetchAll();
-       return count($product);
+        $stmt=$this->pdo->prepare("Select id FROM likes where product_id=? AND username=? AND type=?");
+        $stmt->execute([$productId,$username,$type]);
+        $row=$stmt->fetchAll();
+        if(!empty($row))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function checkIfMeUnlikeProduct($productId,$username){
+        $type='unlike';
+        $stmt=$this->pdo->prepare("Select id FROM likes where product_id=? AND username=? AND type=?");
+        $stmt->execute([$productId,$username,$type]);
+        $row=$stmt->fetchAll();
+        if(!empty($row))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function insertProductLike($productId,$username){
+        $type='like';
+        $stmt=$this->pdo->query("INSERT INTO likes (product_id,username,type) VALUE ('$productId','$username','$type')");
+        return $stmt;
+    }
+    public function insertProductUnlike($productId,$username)
+    {
+        $type = 'unlike';
+        $stmt = $this->pdo->query("INSERT INTO likes (product_id,username,type) VALUE ('$productId','$username','$type')");
+        return $stmt;
+    }
+    public function updateProductLike($productId,$username)
+    {
+        $type='like';
+        $query=$this->pdo->query("UPDATE likes SET type='$type' WHERE product_id='$productId' AND  username='$username'");
+        return $query;
+    }
+    public function updateProductUnlike($productId,$username)
+    {
+        $type='unlike';
+        $query=$this->pdo->query("UPDATE likes SET type='$type' WHERE product_id='$productId' AND  username='$username'");
+        return $query;
     }
 }

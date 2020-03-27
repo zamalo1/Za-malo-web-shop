@@ -243,17 +243,17 @@ class Engine
         }
         return $quantity;
     }
-    public function postComment(){
-        $this->messages='';
-                if(isset($_SESSION['username'])){
-                    if(!empty($_POST['textarea'])){
-
-                        $this->CommentRepository->insertComment($_POST['username'],$_POST['date'],$_POST['textarea'],$_POST['product_id']);
-                    }
-            }else{
-                    $this->messages='You must be logged in!!!';
-                    return $this->messages;
-             }
+    public function postComment($username)
+    {
+        $this->messages = '';
+            if (isset($_SESSION['username'])) {
+                if (!empty($_POST['textarea'])) {
+                    $this->CommentRepository->insertComment($username, $_POST['date'], $_POST['textarea'], $_POST['product_id']);
+                }
+            } else {
+                $this->messages = 'You must be logged in!!!';
+                return $this->messages;
+            }
     }
 
     public function commentLikes($commentId,$username){
@@ -277,6 +277,24 @@ class Engine
             }
         }
     }
+    public function likeProduct($productId,$username){
 
+        if(isset($_SESSION['username'])){
+            if(!$this->LikeRepository->checkIfProductLikeExist($productId,$username) && !$this->LikeRepository->checkIfMeUnlikeProduct($productId,$username)){
+                $this->LikeRepository->insertProductLike($productId,$username);
+            }else{
+                $this->LikeRepository->updateProductLike($productId,$username);
+            }
+        }
+    }
+    public function unlikeProduct($productId,$username){
+        if(isset($_SESSION['username'])){
+            if(!$this->LikeRepository->checkIfMeUnlikeProduct($productId,$username) && !$this->LikeRepository->checkIfProductLikeExist($productId,$username)){
+                $this->LikeRepository->insertProductUnlike($productId,$username);
+            }else{
+                $this->LikeRepository->updateProductUnlike($productId,$username);
+            }
+        }
+    }
 
 }

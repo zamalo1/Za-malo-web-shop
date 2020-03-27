@@ -13,7 +13,7 @@ class Comment
     private $likes;
     private $dislikes;
     private $userLikedThisComment=false;
-
+    private $userUnlikedThisComment=false;
 
     public function __construct($commentArray)
     {
@@ -132,8 +132,18 @@ class Comment
     {
         return $this->userLikedThisComment;
     }
+    public function setUserUnlikedThisComment($expression)
+    {
+        $this->userUnlikedThisComment=$expression;
+    }
 
-
+    /**
+     * @return bool
+     */
+    public function isUserUnlikedThisComment(): bool
+    {
+        return $this->userUnlikedThisComment;
+    }
 
 
 }

@@ -167,7 +167,7 @@ main{
 }
 .elrow{
     width: 250px;
-    height: 530px;
+    height:535;
     background-color: white;
     float: left;
     margin-left: 20px;
@@ -191,7 +191,7 @@ main{
     font-size: 32;
     height: 30px;
 }
-.elrow button{
+.ElrowButton{
     width: 100px;
     height: 40px;
     margin-right: 20px;
@@ -199,160 +199,6 @@ main{
     border-radius: 25px;
     background-color: #ffc002;
     float: right;
-}
-#mazalo1 {
-    background-image: url("images/laptop2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: -3px;
-}
-#mazalo2{
-    background-image: url("images/laptop3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-#mazalo3 {
-    background-image: url("images/laptop4.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo4{
-    background-image: url("images/desctop1.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo5{
-    background-image: url("images/desctop2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo6{
-    background-image: url("images/desctop3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo7{
-    background-image: url("images/desctop4.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}#mazalo8{
-    background-image: url("images/monitor1.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
- #mazalo9{
-    background-image: url("images/monitor2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo10{
-    background-image: url("images/monitor3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}#mazalo11{
-    background-image: url("images/monitor4.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 15px;
-    margin-top: 20px;
-}
-#mazalo12{
-    background-image: url("images/mis1.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-#mazalo13{
-    background-image: url("images/mis2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-#mazalo14{
-    background-image: url("images/mis3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-#mazalo15{
-    background-image: url("images/mis4.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-#mazalo16{
-    background-image: url("images/stampac1.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}
-
-#mazalo17{
-    background-image: url("images/stampac2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}#mazalo18{
-    background-image: url("images/stampac3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 5px;
-}#mazalo19{
-    background-image: url("images/stampac4.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 5px;
-}#mazalo20{
-    background-image: url("images/tastatura1.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}#mazalo21{
-    background-image: url("images/tastatura2.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 30px;
-}#mazalo22{
-    background-image: url("images/tastatura3.jpg");
-    width: 250;
-    height: 215;
-    margin-bottom: 35px;
-    margin-top: 52px;
-}
-#mazalo23 {
-          background-image: url("images/tastatura4.jpg");
-          width: 250;
-          height: 215;
-          margin-bottom: 35px;
-          margin-top: 30px;
 }
 footer{
     width: 1140px;
@@ -468,10 +314,6 @@ a{
     border-radius: 10px;
     text-align: center;
     margin-bottom: 320px;
-
-
-
-
 }
 #loginUser h2{
     color: white;
@@ -526,6 +368,7 @@ table tr {
     margin-top: 32px;
     text-align: center;
     border-radius: 10px;
+    border: none;
 }
 #ukupno{
     padding-top: 5px;
@@ -605,13 +448,111 @@ table tr {
 
 }
 #likeMessage{
-    width:120px;
+  width: 230px;
+    height: 20px;
+    background: white;
+    margin-left: 5px;
+    margin-top: -35px;
+    color: green;
+    text-align: center;
+    float: left;
+}
+#likesDiv{
+    width: 220px;
     height: 30px;
-    font-size: 11;
-    margin-top: -10px;
-    margin-bottom: -5px;
-    margin-left: 25px;
-    text-align: right;
+    background-color: white;
+    margin-left:10px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.likesButton{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 50px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: white;
+    border-radius: 0px;
+    border: none;
+}
+.productLiked{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 50px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: green;
+    border-radius: 0px;
+    border: none;
+}
+.likesButton img{
+    margin-left: -3px;
+    margin-top: 0.5px;
+    margin-bottom: 1px;
+}
+.unlikesButton{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 5px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: white;
+    border-radius: 0px;
+    border: none;
+}
+.productDisliked{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 5px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: red;
+    border-radius: 0px;
+    border: none;
+}
+.unlikesButton img{
+    margin-left: -3.5px;
+    margin-top: 0.5px;
+    margin-bottom: 1px;
+}
+.likesQuantity{
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    margin-top: 4.5px;
+    float: left;
+    text-align: center;
+}
+.quantityLiked{
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+    margin-top: 4.5px;
+    float: left;
+    text-align: center;
+    background-color: green;
+}
+.unlikesQuantity{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 4.5px;
+    float: left;
+    text-align: center;
+}
+.quantityDisliked{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 4.5px;
+    float: left;
+    text-align: center;
+    background-color: red;
 }
 #likeProduct img{
     width:25px;
@@ -737,6 +678,7 @@ table tr {
 #commentDiv p{
     margin-left: 850px;
     margin-top: 5px;
+    color: green;
 
 }
 #commentDiv h2{
@@ -776,6 +718,16 @@ table tr {
     border-right: none;
     border-bottom: 1px solid black;
     position: relative;
+}
+#msg{
+    position: absolute;
+    background-color: white;
+    color: green;
+    text-align: center;
+    right: 18px;
+    top: 25px;
+    width: 150px;
+
 }
 #userComm{
     float: left;
@@ -875,9 +827,104 @@ table tr {
     margin-left: -5px;
     margin-top: -1px;
 }
-
-
-
-
-
-
+#likesDivDet{
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    position: absolute;
+    top: 720px;
+    left: 500px;
+}
+#likesDivDet p{
+    width: 150px;
+    height: 20px;
+    background-color: white;
+    margin-left: -15px;
+    margin-top: -10px;
+    margin-bottom: 5px;
+    color: green;
+}
+.likesButtonDet{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-top:3px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    background: white;
+    border-radius: 0px;
+    border: none;
+}
+.likedButtonDet{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-top:3px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    background: green;
+    border-radius: 0px;
+    border: none;
+}
+.likesButtonDet img{
+    margin-left: -3px;
+    margin-top: 0.5px;
+    margin-bottom: 1px;
+}
+.unlikesButtonDet{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 5px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: white;
+    border-radius: 0px;
+    border: none;
+}
+.unlikedButtonDet{
+    width: 25px;
+    height: auto;
+    float: left;
+    margin-left: 5px;
+    margin-top:3px;
+    margin-bottom: 3px;
+    background: red;
+    border-radius: 0px;
+    border: none;
+}
+.unlikesButtonDet img{
+    margin-left: -3.5px;
+    margin-top: 0.5px;
+    margin-bottom: 1px;
+}
+.likesQuantityDet{
+     width: 20px;
+     height: 20px;
+     margin-left: 5px;
+     margin-top: 4.5px;
+     float: left;
+ }
+.likedQuantityDet{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-top: 4.5px;
+    float: left;
+    background-color: green;
+}
+.unlikesQuantityDet{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 4.5px;
+    float: left;
+}
+.unlikedQuantityDet{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 4.5px;
+    float: left;
+    background-color: red;
+}

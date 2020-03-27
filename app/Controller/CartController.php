@@ -36,7 +36,7 @@ class CartController extends AbstractController
         $this->likeRepository->countLikes($_GET['id']);
         $this->engine->likes();
         $product=$this->productsRepository->CheckProductById1($id);
-        $product->setQuantity($_POST['kolicina']);
+        $product->setQuantity($_GET['kolicina']);
         $this->session->sessionSum($product);
         $this->session->addToCartSession($product);
         header(sprintf("Location:%s?page=index", $_SERVER['SCRIPT_NAME']));
